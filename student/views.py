@@ -25,3 +25,6 @@ def add_student(request):
         )
 
     return render(request,"student/add_student.html")
+
+
+#this is the home page of the project
