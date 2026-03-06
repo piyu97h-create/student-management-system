@@ -26,7 +26,8 @@
         {% endfor %}
             <!-- Add New Student Card -->
             <div class="bg-white rounded-lg shadow-md p-6 flex items-center justify-center">
-                <a href="/student/add-student" class="text-blue-500 hover:text-blue-600 text-lg font-semibold">+ Add New Student</a>
+                <a href="{% url 'add_student' %}" class="text-blue-500 hover:text-blue-600 text-lg font-semibold">+ Add New Student</a>
+            </div>      
         </div>
     </div>
 </body>

@@ -10,3 +10,6 @@ def About(request):
 
 def Courses(request):
     return render(request,"home/courses.html")
+
+def student_home(request):
+    return render(request,"student/student_home.html")

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Student
 
 # Create your views here.
@@ -23,8 +23,6 @@ def add_student(request):
             email=student_email,
             phone=student_phone
         )
+        return redirect ("student-home")
 
     return render(request,"student/add_student.html")
-
-
-#this is the home page of the project
