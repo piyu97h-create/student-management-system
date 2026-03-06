@@ -86,10 +86,10 @@
     </header>
     
     <nav>
-        <a href="/">Home</a>
-        <a href="/student/std">Students</a>
-        <a href="/courses/">Courses</a>
-        <a href="/about/">About</a>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'students' %}">Students</a>
+        <a href="{% url 'courses' %}">Courses</a>
+        <a href="{% url 'about' %}">About</a>
     </nav>
     
     <div class="container">

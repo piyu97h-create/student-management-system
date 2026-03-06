@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
 
-    path("std",views.student_home),
+    path("",views.student_home),
     path("add-student",views.add_student)
 
 ]

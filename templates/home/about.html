@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Student Management System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .features {
+            list-style: none;
+        }
+        
+        .features li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About Student Management System</h1>
+        <p>Simplifying Educational Administration</p>
+    </header>
+    
+    <div class="container">
+        <div class="content">
+            <div class="section">
+                <h2>Our Mission</h2>
+                <p>
+                    The Student Management System is designed to streamline educational administration and improve the overall management of student information, academics, and records.
+                </p>
+                <p>
+                    We aim to provide schools and educational institutions with a reliable, user-friendly platform that reduces administrative overhead and enhances efficiency.
+                </p>
+            </div>
+            
+            <div class="section">
+                <h2>Key Features</h2>
+                <ul class="features">
+                    <li>Student Information Management</li>
+                    <li>Attendance Tracking</li>
+                    <li>Grade Management</li>
+                    <li>Fee Management</li>
+                    <li>Report Generation</li>
+                    <li>User-Friendly Dashboard</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2>Why Choose Us?</h2>
+                <p>
+                    Our system is built with educators and administrators in mind, providing intuitive tools to manage every aspect of student lifecycle from enrollment to graduation.
+                </p>
+                <p>
+                    With robust security measures and regular updates, we ensure your data is always protected and the system remains current with modern educational standards.
+                </p>
+            </div>
+            
+            <div class="section">
+                <h2>Contact Us</h2>
+                <p>
+                    Have questions? We're here to help!
+                </p>
+                <p>
+                    <strong>Email:</strong> support@sms.edu<br>
+                    <strong>Phone:</strong> +1 (555) 123-4567<br>
+                    <strong>Address:</strong> 123 Education Street, Learning City, LC 12345
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Student Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>
