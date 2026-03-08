@@ -26,3 +26,23 @@ def add_student(request):
         return redirect ("student-home")
 
     return render(request,"student/add_student.html")
+
+def delete_student(request,pk):
+    student=Student.objects.get(id=pk)
+    student.delete()
+    return redirect("student-home")
+
+def edit_student(request,pk):
+    student=Student.objects.get(id=pk)
+
+    if request.method=="POST":
+        student.name=request.POST.get("input_name")
+        student.email=request.POST.get("input_email")
+        student.phone=request.POST.get("input_phone")
+        student.save()
+        return redirect("student-home")
+
+    data={
+        "student":student
+    }
+    return render(request,"student/edit_student.html",data)
