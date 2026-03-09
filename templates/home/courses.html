@@ -96,26 +96,19 @@
                 </tr>
             </thead>
             <tbody>
+                {% for course in courses-Data %}
                 <tr>
-                    <td>CS101</td>
-                    <td>Introduction to Programming</td>
-                    <td>John Smith</td>
-                    <td>3</td>
+                    <td>{{ course.courseCode }}</td>
+                    <td>{{ course.courseName }}</td>
+                    <td>{{ course.instructor }}</td>
+                    <td>{{ course.credits }}</td>
                     <td>
                         <button class="btn-edit">Edit</button>
                         <button class="btn-delete">Delete</button>
                     </td>
                 </tr>
-                <tr>
-                    <td>CS102</td>
-                    <td>Data Structures</td>
-                    <td>Jane Doe</td>
-                    <td>4</td>
-                    <td>
-                        <button class="btn-edit">Edit</button>
-                        <button class="btn-delete">Delete</button>
-                    </td>
-                </tr>
+                {% endfor %}
+               
             </tbody>
         </table>
     </div>
