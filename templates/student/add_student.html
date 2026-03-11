@@ -1,75 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Student</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 500px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #333;
-            text-align: center;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        label {
-            font-weight: bold;
-            margin-top: 15px;
-            color: #555;
-        }
-        input, textarea {
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-        button {
-            padding: 12px;
-            margin-top: 25px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Enrollment | U.R. Kindergarten</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary:'#FF6B6B',
+secondary:'#4ECDC4',
+accent:'#FFE66D',
+dark:'#2C3E50',
+light:'#F7F9FC',
+purple:'#A78BFA',
+pink:'#F472B6',
+sky:'#38BDF8',
+orange:'#FB923C'
+}
+}
+}
+}
+</script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+body{
+font-family:'Nunito',sans-serif;
+}
+
+.hero-bg{
+background: linear-gradient(135deg,#FF6B6B 0%,#FFE66D 50%,#4ECDC4 100%);
+}
+</style>
+
 </head>
-<body>
-    <div class="container">
-        <h1>Add Student</h1>
-        <form method="POST">
-            {% csrf_token %}
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="input_name" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="input_email" required>
-            
-            <label for="phone">Phone:</label>
-            <input type="text" id="phone" name="input_phone">
-            
-            <button type="submit">Add Student</button>
-            
-        </form>
-    </div>
+
+<body class="bg-light">
+
+<!-- NAVBAR -->
+
+<nav class="bg-white shadow-md">
+<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+<i class="fas fa-school text-white"></i>
+</div>
+
+<h1 class="font-bold text-dark text-xl">
+U.R. Kindergarten
+</h1>
+</div>
+
+<a href="{% url 'student-home' %}" class="text-primary font-semibold">
+← Back to Home
+</a>
+
+</div>
+</nav>
+
+<!-- HERO HEADER -->
+
+<section class="hero-bg py-16 text-center text-white">
+
+<h1 class="text-5xl font-extrabold mb-4">
+Student Enrollment
+</h1>
+
+<p class="opacity-90">
+Fill the form below to enroll your child in our school
+</p>
+
+</section>
+
+<!-- FORM -->
+
+<section class="py-16">
+
+<div class="max-w-4xl mx-auto bg-white shadow-xl rounded-3xl p-10">
+
+<h2 class="text-3xl font-extrabold text-dark mb-8 text-center">
+Admission Form
+</h2>
+
+<form method="post" class="grid md:grid-cols-2 gap-6">
+    {% csrf_token %}
+
+
+<!-- Student Name -->
+
+<div>
+<label class="font-semibold text-gray-600">Student Name</label>
+
+<input type="text"
+class="w-full border rounded-lg p-3 mt-2 focus:ring-2 focus:ring-primary outline-none"
+placeholder="Enter student name">
+</div>
+
+<!-- DOB -->
+
+<div>
+<label class="font-semibold text-gray-600">Date of Birth</label>
+
+<input type="date"
+class="w-full border rounded-lg p-3 mt-2 focus:ring-2 focus:ring-primary outline-none">
+</div>
+
+<!-- Gender -->
+
+<div>
+<label class="font-semibold text-gray-600">Gender</label>
+
+<select class="w-full border rounded-lg p-3 mt-2 focus:ring-2 focus:ring-primary outline-none">
+
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+
+</select>
+</div>
+
+<!-- Class -->
+
+<div>
+<label class="font-semibold text-gray-600">Class</label>
+
+<select class="w-full border rounded-lg p-3 mt-2 focus:ring-2 focus:ring-primary outline-none">
+
+<option>Nursery</option>
+<option>LKG</option>
+<option>UKG</option>
+
+</select>
+</div>
+
+<!-- Parent Name -->
+
+<div>
+<label class="font-semibold text-gray-600">Parent Name</label>
+
+<input type="text"
+class="w-full border rounded-lg p-3 mt-2 focus:ring-2 focus:ring-primary outline-none"
+placeholder="Enter parent name">
+</div>
+
+<!-- Phone -->
+
+<div>
+<label class="font-semibold text-gray-600">Phone Number</label>
+
+<input type="tel"
+class="w-full border rounded-lg p-3 mt-2 focus:ring-2 focus:ring-primary outline-none"
+placeholder="Enter phone number">
+</div>
+
+<!-- Email -->
+
+<div class="md:col-span-2">
+<label class="font-semibold text-gray-600">Email</label>
+
+<input type="email"
+class="w-full border rounded-lg p-3 mt-2 focus:ring-2 focus:ring-primary outline-none"
+placeholder="Enter email">
+</div>
+
+<!-- Address -->
+
+<div class="md:col-span-2">
+
+<label class="font-semibold text-gray-600">Address</label>
+
+<textarea rows="3"
+class="w-full border rounded-lg p-3 mt-2 focus:ring-2 focus:ring-primary outline-none"
+placeholder="Enter address"></textarea>
+
+</div>
+
+<!-- Submit -->
+
+<div class="md:col-span-2 text-center mt-6">
+
+<a href="{% url 'student-home' %}" class="bg-primary text-white px-10 py-3 rounded-full font-bold hover:bg-red-500 transition">
+
+Submit Enrollment
+
+</a>
+
+</div>
+
+</form>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="bg-dark text-white py-10 text-center">
+
+<h3 class="text-2xl font-bold">
+U.R. Kindergarten School
+</h3>
+
+<p class="text-gray-400 mt-2">
+Building bright futures for little learners
+</p>
+
+<p class="text-gray-500 text-sm mt-4">
+© 2026 All Rights Reserved
+</p>
+
+</footer>
+
 </body>
 </html>

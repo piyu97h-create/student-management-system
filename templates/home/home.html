@@ -3,82 +3,304 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UR Student Management System - Home</title>
+<title>U.R. Kindergarten School Management System</title>
 
-<!-- Tailwind CSS CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#FF6B6B',
+secondary: '#4ECDC4',
+accent: '#FFE66D',
+dark: '#2C3E50',
+light: '#F7F9FC',
+purple: '#A78BFA',
+pink: '#F472B6',
+sky: '#38BDF8',
+orange: '#FB923C'
+}
+}
+}
+}
+</script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+body{font-family:'Nunito',sans-serif;}
+
+.hero-bg{
+background: linear-gradient(135deg,#FF6B6B 0%,#FFE66D 50%,#4ECDC4 100%);
+}
+
+.card-hover:hover{
+transform:translateY(-8px);
+box-shadow:0 20px 40px rgba(0,0,0,0.1);
+}
+
+.blob{
+border-radius:42% 58% 70% 30% / 45% 45% 55% 55%;
+animation:blob 8s ease-in-out infinite;
+}
+
+@keyframes blob{
+0%,100%{border-radius:42% 58% 70% 30% / 45% 45% 55% 55%;}
+50%{border-radius:58% 42% 30% 70% / 55% 55% 45% 45%;}
+}
+</style>
 </head>
 
-<body class="bg-gray-100 font-sans">
+<body class="bg-light">
 
-<!-- Header -->
-<header class="bg-gradient-to-r from-blue-700 to-indigo-700 text-white py-6 shadow-md">
-    <h1 class="text-3xl font-bold text-center">U.R. KinderGarten Student Management System</h1>
-</header>
+<!-- NAVBAR -->
+<nav class="bg-white shadow-md sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4">
+<div class="flex justify-between items-center h-20">
 
-<!-- Navbar -->
-<nav class="bg-white shadow-md">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-center space-x-8 font-semibold">
-        <a href="{% url 'home' %}" class="text-gray-700 hover:text-blue-600 transition">Home</a>
-        <a href="{% url 'student-home' %}" class="text-gray-700 hover:text-blue-600 transition">Students</a>
-        <a href="{% url 'courses' %}" class="text-gray-700 hover:text-blue-600 transition">Courses</a>
-        <a href="{% url 'about' %}" class="text-gray-700 hover:text-blue-600 transition">About</a>
-    </div>
-</nav>
-
-<!-- Container -->
-<div class="max-w-6xl mx-auto px-6 py-10">
-
-    <!-- Welcome Section -->
-    <div class="bg-white p-8 rounded-xl shadow-md mb-10 text-center">
-        <h2 class="text-2xl font-bold text-gray-800 mb-2">
-            Welcome to the Student Management System
-        </h2>
-        <p class="text-gray-600">
-            Manage student information efficiently and effectively.
-        </p>
-    </div>
-
-    <!-- Cards -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-        <a href="{% url 'student-home' %}" class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-2 transition transform text-center cursor-pointer">
-            <h3 class="text-lg font-bold text-gray-800 mb-2">👥 Manage Students</h3>
-            <p class="text-gray-600 text-sm">
-                Add, update, and delete student records
-            </p>
-        </a>
-
-        <a href="{% url 'courses' %}" class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-2 transition transform text-center cursor-pointer">
-            <h3 class="text-lg font-bold text-gray-800 mb-2">📚 Manage Courses</h3>
-            <p class="text-gray-600 text-sm">
-                Track and manage course information
-            </p>
-        </a>
-
-        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-2 transition transform text-center cursor-pointer">
-            <h3 class="text-lg font-bold text-gray-800 mb-2">📊 Reports</h3>
-            <p class="text-gray-600 text-sm">
-                View detailed reports and analytics
-            </p>
-        </div>
-
-        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-2 transition transform text-center cursor-pointer">
-            <h3 class="text-lg font-bold text-gray-800 mb-2">⚙️ Settings</h3>
-            <p class="text-gray-600 text-sm">
-                Configure system preferences
-            </p>
-        </div>
-
-    </div>
-
+<div class="flex items-center space-x-3">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+<i class="fas fa-school text-white"></i>
+</div>
+<div>
+<h1 class="font-extrabold text-dark text-xl">U.R. Kindergarten</h1>
+<p class="text-xs text-gray-400">School Management System</p>
+</div>
 </div>
 
-<!-- Footer -->
-<footer class="bg-gray-900 text-white text-center py-6 mt-10">
-    <p>&copy; 2026 U.R. KinderGarten Student Management System. All rights reserved.</p>
+<div class="hidden md:flex space-x-8">
+<a href="{% url 'home' %}" class="text-primary font-bold">Home</a>
+<a href="{% url 'about' %}">About</a>
+<a href="#program">Programs</a>
+<a href="#gallery">Gallery</a>
+<a href="#events">Events</a>
+<a href="#contact">Contact</a>
+</div>
+
+<button id="menuToggle" class="md:hidden text-xl">
+<i class="fas fa-bars"></i>
+</button>
+
+</div>
+</div>
+
+<div id="mobileMenu" class="hidden md:hidden bg-white p-6 space-y-3">
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#features">Programs</a>
+<a href="#gallery">Gallery</a>
+<a href="#events">Events</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
+
+<!-- HERO -->
+<section id="home" class="hero-bg text-white py-24 text-center">
+<h1 class="text-5xl font-extrabold mb-6">
+Where Little Minds Grow Big Dreams
+</h1>
+
+<p class="max-w-xl mx-auto mb-8">
+Nurturing young learners with love, creativity, and fun education.
+</p>
+
+<a href="{% url 'add_student' %}" class="bg-white text-primary px-8 py-3 rounded-full font-bold">
+Enroll Now
+</a>
+</section>
+
+
+<!-- ABOUT -->
+<section id="about" class="py-20 bg-white">
+<div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center px-6">
+
+<div>
+<h2 class="text-4xl font-extrabold mb-6 text-dark">
+Welcome to U.R. Kindergarten
+</h2>
+
+<p class="text-gray-500 mb-6">
+We believe every child is unique and deserves a joyful learning environment.
+Our mission is to inspire curiosity, creativity and confidence in young learners.
+</p>
+
+<ul class="space-y-3">
+<li>✔ Play Based Learning</li>
+<li>✔ Safe Campus</li>
+<li>✔ Smart Classrooms</li>
+<li>✔ Experienced Teachers</li>
+</ul>
+</div>
+
+<div class="bg-primary h-64 rounded-3xl flex items-center justify-center text-white text-6xl">
+<i class="fas fa-child"></i>
+</div>
+
+</div>
+</section>
+
+
+<!-- PROGRAMS -->
+<section id="features" class="py-20 bg-light">
+<div class="max-w-6xl mx-auto text-center px-6">
+
+<h2 class="text-4xl font-extrabold text-dark mb-10">
+Our Programs
+</h2>
+
+<div class="grid md:grid-cols-3 gap-8">
+
+<div class="bg-white p-8 rounded-3xl shadow-lg card-hover">
+<i class="fas fa-brain text-primary text-3xl mb-4"></i>
+<h3 class="font-bold text-xl">Cognitive Skills</h3>
+<p class="text-gray-400 mt-2">Learning through puzzles and games.</p>
+</div>
+
+<div class="bg-white p-8 rounded-3xl shadow-lg card-hover">
+<i class="fas fa-paint-brush text-pink text-3xl mb-4"></i>
+<h3 class="font-bold text-xl">Creative Arts</h3>
+<p class="text-gray-400 mt-2">Painting, drawing and crafts.</p>
+</div>
+
+<div class="bg-white p-8 rounded-3xl shadow-lg card-hover">
+<i class="fas fa-running text-orange text-3xl mb-4"></i>
+<h3 class="font-bold text-xl">Physical Activities</h3>
+<p class="text-gray-400 mt-2">Outdoor games and sports.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- GALLERY -->
+<section id="gallery" class="py-20 bg-white">
+<div class="max-w-6xl mx-auto px-6 text-center">
+
+<h2 class="text-4xl font-extrabold text-dark mb-10">
+Gallery
+</h2>
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+<div class="h-40 bg-primary rounded-xl flex items-center justify-center text-white text-3xl">
+<i class="fas fa-camera"></i>
+</div>
+
+<div class="h-40 bg-secondary rounded-xl flex items-center justify-center text-white text-3xl">
+<i class="fas fa-images"></i>
+</div>
+
+<div class="h-40 bg-pink rounded-xl flex items-center justify-center text-white text-3xl">
+<i class="fas fa-smile"></i>
+</div>
+
+<div class="h-40 bg-purple rounded-xl flex items-center justify-center text-white text-3xl">
+<i class="fas fa-star"></i>
+</div>
+
+<div class="h-40 bg-orange rounded-xl flex items-center justify-center text-white text-3xl">
+<i class="fas fa-child"></i>
+</div>
+
+<div class="h-40 bg-sky rounded-xl flex items-center justify-center text-white text-3xl">
+<i class="fas fa-football-ball"></i>
+</div>
+
+<div class="h-40 bg-primary rounded-xl flex items-center justify-center text-white text-3xl">
+<i class="fas fa-music"></i>
+</div>
+
+<div class="h-40 bg-secondary rounded-xl flex items-center justify-center text-white text-3xl">
+<i class="fas fa-palette"></i>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- EVENTS -->
+<section id="events" class="py-20 bg-light">
+<div class="max-w-6xl mx-auto px-6 text-center">
+
+<h2 class="text-4xl font-extrabold text-dark mb-10">
+Upcoming Events
+</h2>
+
+<div class="grid md:grid-cols-3 gap-8">
+
+<div class="bg-white p-6 rounded-2xl shadow">
+<h3 class="font-bold text-xl">Sports Day</h3>
+<p class="text-gray-400">12 April 2026</p>
+</div>
+
+<div class="bg-white p-6 rounded-2xl shadow">
+<h3 class="font-bold text-xl">Art Competition</h3>
+<p class="text-gray-400">5 May 2026</p>
+</div>
+
+<div class="bg-white p-6 rounded-2xl shadow">
+<h3 class="font-bold text-xl">Annual Function</h3>
+<p class="text-gray-400">20 June 2026</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact" class="py-20 bg-white">
+<div class="max-w-4xl mx-auto px-6 text-center">
+
+<h2 class="text-4xl font-extrabold text-dark mb-10">
+Contact Us
+</h2>
+
+<form class="grid gap-4">
+
+<input type="text" placeholder="Your Name" class="border p-3 rounded-lg">
+
+<input type="email" placeholder="Your Email" class="border p-3 rounded-lg">
+
+<textarea placeholder="Message" class="border p-3 rounded-lg"></textarea>
+
+<button class="bg-primary text-white py-3 rounded-lg font-bold">
+Send Message
+</button>
+
+</form>
+</div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white py-10 text-center">
+
+<h3 class="text-2xl font-bold">U.R. Kindergarten School</h3>
+<p class="text-gray-400 mt-2">
+Building bright futures for little learners
+</p>
+
+<p class="text-gray-500 mt-4 text-sm">
+© 2026 All Rights Reserved
+</p>
+
 </footer>
+
+
+<script>
+const toggle=document.getElementById("menuToggle");
+const menu=document.getElementById("mobileMenu");
+
+toggle.addEventListener("click",()=>{
+menu.classList.toggle("hidden");
+});
+</script>
 
 </body>
 </html>

@@ -15,13 +15,23 @@ def student_home(request):
 def add_student(request):
     if request.method=="POST":
         student_name=request.POST.get("input_name")
+        student_dob=request.POST.get("input_dob")
+        student_gender=request.POST.get("input_gender")
+        student_class=request.POST.get("input_class")
         student_email=request.POST.get("input_email")
         student_phone=request.POST.get("input_phone")
+        student_parent_name=request.POST.get("input_parent_name")
+        student_address=request.POST.get("input_address")
 
         Student.objects.create(
             name=student_name,
+            dob=student_dob,
+            gender=student_gender,
+            student_class=student_class,
             email=student_email,
-            phone=student_phone
+            phone=student_phone,
+            parent_name=student_parent_name,
+            address=student_address
         )
         return redirect ("student-home")
 
