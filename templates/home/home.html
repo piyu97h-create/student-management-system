@@ -1,3 +1,6 @@
+
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,6 +70,7 @@ animation:blob 8s ease-in-out infinite;
 <div>
 <h1 class="font-extrabold text-dark text-xl">U.R. Kindergarten</h1>
 <p class="text-xs text-gray-400">School Management System</p>
+
 </div>
 </div>
 
@@ -135,11 +139,11 @@ Our mission is to inspire curiosity, creativity and confidence in young learners
 </ul>
 </div>
 
-<div class="bg-primary h-64 rounded-3xl flex items-center justify-center text-white text-6xl">
-<i class="fas fa-child"></i>
-</div>
+ 
+<img src="{% static 'img/myimg.jpeg' %}" alt="" class=" h-64 rounded-3xl flex items-center justify-center text-white text-6xl" width="100%" height="100%">
+</img>
 
-</div>
+
 </section>
 
 
